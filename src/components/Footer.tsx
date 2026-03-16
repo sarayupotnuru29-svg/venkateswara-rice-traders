@@ -41,11 +41,11 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-gold font-semibold mb-4">Our Products</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Rice & Rice Products</li>
-              <li>Brans & Husks</li>
-              <li>Cattle Feed & Pellets</li>
-              <li>Grains & Millets</li>
-              <li>Supplements</li>
+              <li><Link to="/products" className="hover:text-gold transition-colors">Rice & Rice Products</Link></li>
+              <li><Link to="/products" className="hover:text-gold transition-colors">Brans & Husks</Link></li>
+              <li><Link to="/products" className="hover:text-gold transition-colors">Cattle Feed & Pellets</Link></li>
+              <li><Link to="/products" className="hover:text-gold transition-colors">Grains & Millets</Link></li>
+              <li><Link to="/products" className="hover:text-gold transition-colors">Supplements</Link></li>
             </ul>
           </div>
 

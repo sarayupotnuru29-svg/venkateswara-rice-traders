@@ -1,6 +1,7 @@
 import { useCart } from '@/context/CartContext';
 import { Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import cartBg from '@/assets/cart-bg.jpg';
 
 const CartPage = () => {
   const { items, removeFromCart, updateQuantity, clearCart } = useCart();
@@ -15,10 +16,12 @@ const CartPage = () => {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-background px-4">
+      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-background px-4 relative">
+        <img src={cartBg} alt="" className="absolute inset-0 w-full h-full object-cover -z-10" />
+        <div className="absolute inset-0 bg-background/90 -z-10" />
         <ShoppingBag className="text-muted-foreground mb-4" size={64} />
         <h1 className="font-display text-2xl font-bold text-foreground mb-2">Your Cart is Empty</h1>
-        <p className="font-body text-muted-foreground mb-6">Add some products to get started.</p>
+        <p className="font-body text-foreground mb-6">Add some products to get started.</p>
         <Link
           to="/products"
           className="bg-gold-gradient text-primary-foreground px-6 py-3 rounded-md font-body font-semibold hover:opacity-90 transition-opacity"
@@ -30,7 +33,9 @@ const CartPage = () => {
   }
 
   return (
-    <div className="bg-background min-h-screen py-12">
+    <div className="min-h-screen py-12 relative">
+      <img src={cartBg} alt="" className="fixed inset-0 w-full h-full object-cover -z-10" />
+      <div className="fixed inset-0 bg-background/92 -z-10" />
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-8">Shopping Cart</h1>
 
@@ -41,7 +46,7 @@ const CartPage = () => {
               <div className="flex-1 min-w-0">
                 <h3 className="font-display text-foreground font-semibold text-sm lg:text-base truncate">{item.name}</h3>
                 <p className="font-body text-gold-dark font-bold text-sm">{item.price}</p>
-                <span className="text-xs text-muted-foreground font-body">{item.category}</span>
+                <span className="text-xs text-foreground font-body">{item.category}</span>
               </div>
               <div className="flex items-center gap-2">
                 <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="w-8 h-8 rounded border border-border flex items-center justify-center text-foreground hover:bg-muted">
@@ -61,10 +66,10 @@ const CartPage = () => {
 
         <div className="mt-8 bg-card border border-border/50 rounded-lg p-6">
           <div className="flex justify-between items-center mb-4">
-            <span className="font-body text-muted-foreground">Total Items</span>
+            <span className="font-body text-foreground">Total Items</span>
             <span className="font-display text-foreground font-bold">{items.reduce((s, i) => s + i.quantity, 0)}</span>
           </div>
-          <p className="text-sm text-muted-foreground font-body mb-6">
+          <p className="text-sm text-foreground font-body mb-6">
             Final pricing will be confirmed on WhatsApp based on current market rates.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">

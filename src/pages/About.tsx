@@ -1,11 +1,14 @@
-import { CheckCircle } from 'lucide-react';
 import aboutBg from '@/assets/about-bg.jpg';
+import focusRice from '@/assets/focus-rice.jpg';
+import focusCattleFeed from '@/assets/focus-cattle-feed.jpg';
+import focusGrainSacks from '@/assets/focus-grain-sacks.jpg';
+import focusSupply from '@/assets/focus-supply.jpg';
 
-const values = [
-  'Quality agricultural feed',
-  'Reliable supply chain',
-  'Fair market pricing',
-  'Trusted local service',
+const focuses = [
+  { img: focusRice, title: 'Quality Agricultural Feed', desc: 'Premium rice, bran, and grain products sourced from trusted suppliers.' },
+  { img: focusCattleFeed, title: 'Cattle Feed & Supplements', desc: 'Nutritious cattle feed pellets and supplements for healthy livestock.' },
+  { img: focusGrainSacks, title: 'Fair Market Pricing', desc: 'Competitive wholesale prices with transparent and honest dealings.' },
+  { img: focusSupply, title: 'Reliable Supply Chain', desc: 'Consistent and timely delivery to farmers and traders across the region.' },
 ];
 
 const About = () => {
@@ -25,19 +28,22 @@ const About = () => {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-6">About Venkateswara Rice Traders</h2>
-          <p className="font-body text-muted-foreground leading-relaxed mb-4">
-            Venkateswara Rice Traders is a trusted supplier dealing in <strong className="text-foreground">rice, cattle feeds, bran, and agricultural products</strong>. We provide quality products to farmers and traders at competitive market prices.
+          <p className="font-body text-foreground leading-relaxed mb-4">
+            Venkateswara Rice Traders is a trusted supplier dealing in <strong>rice, cattle feeds, bran, and agricultural products</strong>. We provide quality products to farmers and traders at competitive market prices.
           </p>
-          <p className="font-body text-muted-foreground leading-relaxed mb-8">
+          <p className="font-body text-foreground leading-relaxed mb-8">
             With years of experience in the agricultural trading industry, we have built a reputation for reliability, quality, and fair pricing. Our commitment to excellence has made us a preferred partner for farmers and businesses across the region.
           </p>
 
           <h3 className="font-display text-2xl font-bold text-foreground mb-6">Our Business Focuses On</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {values.map(v => (
-              <div key={v} className="flex items-center gap-3 bg-card border border-border/50 rounded-lg p-4">
-                <CheckCircle className="text-gold shrink-0" size={24} />
-                <span className="font-body text-foreground font-medium">{v}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {focuses.map(f => (
+              <div key={f.title} className="bg-card border border-border/50 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                <img src={f.img} alt={f.title} className="w-full h-40 object-cover" />
+                <div className="p-4">
+                  <h4 className="font-display text-foreground font-semibold text-lg mb-1">{f.title}</h4>
+                  <p className="font-body text-foreground text-sm">{f.desc}</p>
+                </div>
               </div>
             ))}
           </div>
