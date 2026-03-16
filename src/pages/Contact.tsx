@@ -1,13 +1,18 @@
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import contactBg from '@/assets/contact-bg.jpg';
 
 const Contact = () => {
   return (
-    <div className="bg-background min-h-screen">
+    <div className="min-h-screen relative">
+      {/* Background */}
+      <img src={contactBg} alt="" className="fixed inset-0 w-full h-full object-cover -z-10" />
+      <div className="fixed inset-0 bg-background/92 -z-10" />
+
       {/* Header */}
       <section className="bg-secondary py-12 lg:py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-2">Contact Us</h1>
-          <p className="font-body text-muted-foreground">Get in touch for orders, enquiries, and bulk pricing.</p>
+          <p className="font-body text-foreground">Get in touch for orders, enquiries, and bulk pricing.</p>
         </div>
       </section>
 
@@ -22,7 +27,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-display text-foreground font-semibold mb-1">Phone</h3>
-                  <a href="tel:9704372273" className="font-body text-muted-foreground hover:text-gold transition-colors">9704372273</a>
+                  <a href="tel:9704372273" className="font-body text-foreground hover:text-gold transition-colors">9704372273</a>
                 </div>
               </div>
 
@@ -32,7 +37,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-display text-foreground font-semibold mb-1">Email</h3>
-                  <a href="mailto:Kamesh2207@gmail.com" className="font-body text-muted-foreground hover:text-gold transition-colors">Kamesh2207@gmail.com</a>
+                  <a href="mailto:Kamesh2207@gmail.com" className="font-body text-foreground hover:text-gold transition-colors">Kamesh2207@gmail.com</a>
                 </div>
               </div>
 
@@ -42,7 +47,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-display text-foreground font-semibold mb-1">Address</h3>
-                  <p className="font-body text-muted-foreground text-sm leading-relaxed">
+                  <p className="font-body text-foreground text-sm leading-relaxed">
                     Venkateswara Rice Traders<br />
                     Opp to Hanuman Temple<br />
                     ST Road<br />
@@ -57,7 +62,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-display text-foreground font-semibold mb-1">Business Hours</h3>
-                  <p className="font-body text-muted-foreground text-sm">
+                  <p className="font-body text-foreground text-sm">
                     Everyday: 8 AM – 10 PM<br />
                     Sunday: 8 AM – 7 PM
                   </p>
@@ -81,7 +86,7 @@ const Contact = () => {
 
               <div className="bg-gold/10 border border-gold/30 rounded-lg p-6 text-center">
                 <h3 className="font-display text-xl font-bold text-foreground mb-3">Quick Order via WhatsApp</h3>
-                <p className="font-body text-muted-foreground text-sm mb-4">
+                <p className="font-body text-foreground text-sm mb-4">
                   Send us your order list directly on WhatsApp for fast processing.
                 </p>
                 <a

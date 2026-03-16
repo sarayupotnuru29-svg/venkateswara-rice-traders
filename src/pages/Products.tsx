@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { products, categories } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import { AlertTriangle } from 'lucide-react';
+import productsBg from '@/assets/products-bg.jpg';
 
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
@@ -9,12 +10,16 @@ const Products = () => {
   const filtered = activeCategory === 'All' ? products : products.filter(p => p.category === activeCategory);
 
   return (
-    <div className="bg-background min-h-screen">
+    <div className="min-h-screen relative">
+      {/* Background */}
+      <img src={productsBg} alt="" className="fixed inset-0 w-full h-full object-cover -z-10" />
+      <div className="fixed inset-0 bg-background/92 -z-10" />
+
       {/* Header */}
       <section className="bg-secondary py-12 lg:py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-2">Our Products</h1>
-          <p className="font-body text-muted-foreground max-w-xl mx-auto">
+          <p className="font-body text-foreground max-w-xl mx-auto">
             Browse our complete range of agricultural products, cattle feed, grains, and more.
           </p>
         </div>
@@ -62,7 +67,7 @@ const Products = () => {
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
-        <p className="text-center text-muted-foreground text-sm mt-8 font-body">
+        <p className="text-center text-foreground text-sm mt-8 font-body">
           Showing {filtered.length} of {products.length} products
         </p>
       </div>
