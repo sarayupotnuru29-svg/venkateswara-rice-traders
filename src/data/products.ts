@@ -56,6 +56,7 @@ export interface Product {
   price: string;
   category: string;
   image: string;
+  variants?: { label: string; price: string }[];
 }
 
 const categoryImages: Record<string, string> = {
@@ -89,7 +90,6 @@ const productSpecificImages: Record<string, string> = {
   'Wheat Flakes': wheatFlakesImg,
   'White Jower': whiteJowerImg,
   'Yellow Jower': yellowJowerImg,
-  // New specific mappings
   'Broken Rice': brokenRiceImg,
   'Kurnool Rice': kurnoolRiceImg,
   'Vip Gold': vipGoldImg,
@@ -105,15 +105,13 @@ const productSpecificImages: Record<string, string> = {
   'Heritage Milk Booster': heritageMilkBoosterImg,
   'Heritage Milk Joy': heritageMilkJoyImg,
   'Ground Nut Cake': groundNutCakeImg,
-  'Calcium (1L)': calciumImg,
-  'Calcium (5L)': calciumImg,
-  'Calcium (10L)': calciumImg,
+  'Calcium': calciumImg,
   'Mineral Mixture': mineralMixtureImg,
   'Jaggery': jaggeryImg,
   'Salt': saltImg,
 };
 
-function makeProduct(name: string, quantity: string, price: string, category: string): Product {
+function makeProduct(name: string, quantity: string, price: string, category: string, variants?: { label: string; price: string }[]): Product {
   return {
     id: name.toLowerCase().replace(/[^a-z0-9]/g, '-'),
     name,
@@ -121,6 +119,7 @@ function makeProduct(name: string, quantity: string, price: string, category: st
     price,
     category,
     image: productSpecificImages[name] || categoryImages[category] || riceImg,
+    ...(variants ? { variants } : {}),
   };
 }
 
@@ -139,15 +138,15 @@ export const products: Product[] = [
   makeProduct('Green Gram Husk', '50 kg', '₹1,250', 'Brans'),
   makeProduct('Red Gram Husk', '50 kg', '₹1,500', 'Brans'),
 
-  // Grains
-  makeProduct('Maize', '19 – 22 kgs', '', 'Grains'),
-  makeProduct('Bajjara', '22 – 28 kgs', '', 'Grains'),
-  makeProduct('White Jower', '25 – 30 kgs', '', 'Grains'),
-  makeProduct('Yellow Jower', '55 – 60 kgs', '', 'Grains'),
-  makeProduct('Ragi', '43 – 46 kgs', '', 'Grains'),
-  makeProduct('Raw Ragi', '42 – 45 kgs', '', 'Grains'),
-  makeProduct('Horse Gram', '40 – 45 kgs', '', 'Grains'),
-  makeProduct('Coppra (5 types)', '40 – 60 kgs', '', 'Grains'),
+  // Grains — price per kg, no fixed price
+  makeProduct('Maize', '50 kg', '₹19 – ₹22 / kg', 'Grains'),
+  makeProduct('Bajjara', '50 kg', '₹22 – ₹28 / kg', 'Grains'),
+  makeProduct('White Jower', '50 kg', '₹25 – ₹30 / kg', 'Grains'),
+  makeProduct('Yellow Jower', '50 kg', '₹55 – ₹60 / kg', 'Grains'),
+  makeProduct('Ragi', '50 kg', '₹43 – ₹46 / kg', 'Grains'),
+  makeProduct('Raw Ragi', '50 kg', '₹42 – ₹45 / kg', 'Grains'),
+  makeProduct('Horse Gram', '50 kg', '₹40 – ₹45 / kg', 'Grains'),
+  makeProduct('Coppra (5 types)', '50 kg', '₹40 – ₹60 / kg', 'Grains'),
 
   // Cattle Feed
   makeProduct('Cotton Cake (Normal)', '50 kg', '₹1,300', 'Cattle Feed'),
@@ -160,7 +159,7 @@ export const products: Product[] = [
   makeProduct('Heritage Mix Mawa', '50 kg', '₹1,350', 'Cattle Feed'),
   makeProduct('Heritage Milk Booster', '50 kg', '₹1,400', 'Cattle Feed'),
   makeProduct('Heritage Milk Joy', '50 kg', '₹1,650', 'Cattle Feed'),
-  makeProduct('Ground Nut Cake', '45 – 50 kgs', '', 'Cattle Feed'),
+  makeProduct('Ground Nut Cake', '50 kg', '₹45 – ₹50 / kg', 'Cattle Feed'),
 
   // Rice Products
   makeProduct('Broken Rice', '50 kg', '₹1,200', 'Rice Products'),
@@ -170,17 +169,17 @@ export const products: Product[] = [
   makeProduct('Queen of Punjab', '30 kg', '', 'Rice Products'),
   makeProduct('Unity Basmati', '30 kg', '', 'Rice Products'),
 
-  // Supplements
-  makeProduct('Calcium (1L)', '1 L', '₹150', 'Supplements'),
-  makeProduct('Calcium (5L)', '5 L', '₹600', 'Supplements'),
-  makeProduct('Calcium (10L)', '10 L', '₹1,100', 'Supplements'),
+  // Supplements — Calcium merged into single product with variants
+  makeProduct('Calcium', '1L / 5L / 10L', '', 'Supplements', [
+    { label: '1L', price: '₹150' },
+    { label: '5L', price: '₹600' },
+    { label: '10L', price: '₹1,100' },
+  ]),
   makeProduct('Mineral Mixture', '1 kg', '₹100', 'Supplements'),
 
   // Others
-  makeProduct('Jaggery', '50 kg', '₹50/kg', 'Others'),
+  makeProduct('Jaggery', '50 kg', '₹50 / kg', 'Others'),
   makeProduct('Salt', '50 kg', '₹350', 'Others'),
 ];
 
 export const categories = ['Brans', 'Grains', 'Cattle Feed', 'Rice Products', 'Supplements', 'Others'];
-
-
