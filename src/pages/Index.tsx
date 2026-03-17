@@ -24,29 +24,29 @@ const Index = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[85vh] flex flex-col items-center justify-end overflow-hidden pb-16 md:pb-20">
         <img src={logoImg} alt="Venkateswara Rice Traders" className="absolute inset-0 w-full h-full object-contain bg-white" />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gold-light mb-4 leading-tight">
-            Trusted Rice & Cattle Feed Traders
-          </h1>
-          <p className="font-body text-lg md:text-xl text-secondary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Wholesale suppliers of rice, cattle feed, grains, and agricultural products.
-          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/products"
-              className="bg-gold-gradient text-primary-foreground px-8 py-3 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity"
+              className="bg-green-gradient text-primary-foreground px-10 py-3.5 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity shadow-lg"
             >
-              View Products
+              Shop Products
             </Link>
             <Link
               to="/contact"
-              className="border-2 border-gold text-gold px-8 py-3 rounded-md font-body font-semibold text-base hover:bg-gold hover:text-primary-foreground transition-colors"
+              className="bg-gold-gradient text-white px-10 py-3.5 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity shadow-lg"
             >
               Contact Us
             </Link>
+            <a
+              href="tel:9704372273"
+              className="border-2 border-white/80 text-white px-10 py-3.5 rounded-md font-body font-semibold text-base hover:bg-white/10 transition-colors shadow-lg"
+            >
+              Call Now
+            </a>
           </div>
         </div>
       </section>
@@ -58,8 +58,8 @@ const Index = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map(f => (
               <div key={f.title} className="bg-card border border-border/50 rounded-lg p-6 text-center hover:shadow-md transition-shadow">
-                <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <f.icon className="text-gold" size={28} />
+                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <f.icon className="text-primary" size={28} />
                 </div>
                 <h3 className="font-display text-lg font-semibold text-foreground mb-2">{f.title}</h3>
                 <p className="font-body text-sm text-muted-foreground">{f.desc}</p>
@@ -83,10 +83,7 @@ const Index = () => {
                 key={c.name}
                 className="group relative overflow-hidden rounded-lg aspect-[4/3] border border-border/50 shadow-sm"
               >
-                {/* Image is now clearly visible without dark shade */}
                 <img src={c.img} alt={c.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                
-                {/* Text overlay moved to the bottom with a subtle gradient for readability */}
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent flex items-end p-5">
                   <h3 className="font-display text-xl font-bold text-white group-hover:text-gold-light transition-colors">{c.name}</h3>
                 </div>
@@ -97,7 +94,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gold-gradient">
+      <section className="py-16 bg-green-gradient">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-display text-3xl lg:text-4xl font-bold text-primary-foreground mb-4">
             Ready to Order?
@@ -107,7 +104,7 @@ const Index = () => {
           </p>
           <a
             href="tel:9704372273"
-            className="inline-block bg-secondary text-secondary-foreground px-8 py-3 rounded-md font-body font-semibold hover:opacity-90 transition-opacity"
+            className="inline-block bg-gold-gradient text-white px-8 py-3 rounded-md font-body font-semibold hover:opacity-90 transition-opacity"
           >
             Call Now: 9704372273
           </a>
