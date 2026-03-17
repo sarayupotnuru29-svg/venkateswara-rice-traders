@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Truck, ShieldCheck, Wheat, Users } from 'lucide-react';
-import heroBg from '@/assets/hero-bg.jpg';
+import logoImg from '@/assets/logo.jpeg';
 import riceImg from '@/assets/products/rice/rice-category.jpg';
 import branImg from '@/assets/products/bran/bran-category.jpg';
 import cattleFeedImg from '@/assets/products/cattle-feed/cattle-feed-category.jpg';
