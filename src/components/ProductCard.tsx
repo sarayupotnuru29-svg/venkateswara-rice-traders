@@ -67,7 +67,7 @@ const ProductCard = ({ product }: { product: Product }) => {
 
         <button
           onClick={handleAdd}
-          className="mt-3 w-full flex items-center justify-center gap-2 bg-gold-gradient text-primary-foreground px-3 py-2 rounded-md font-body text-sm font-semibold hover:opacity-90 transition-opacity"
+          className="mt-3 w-full flex items-center justify-center gap-2 bg-green-gradient text-primary-foreground px-3 py-2 rounded-md font-body text-sm font-semibold hover:opacity-90 transition-opacity"
         >
           <ShoppingCart size={16} />
           Add to Cart
