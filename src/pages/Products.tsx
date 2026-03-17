@@ -49,7 +49,7 @@ const Products = () => {
               onClick={() => setActiveCategory('All')}
               className={`px-6 py-2.5 rounded-full font-body text-sm font-semibold transition-all shadow-sm ${
                 activeCategory === 'All' 
-                  ? 'bg-gold-gradient text-primary-foreground' 
+                  ? 'bg-green-gradient text-primary-foreground' 
                   : 'bg-card border border-border text-foreground hover:bg-muted'
               }`}
             >
@@ -61,7 +61,7 @@ const Products = () => {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-6 py-2.5 rounded-full font-body text-sm font-semibold transition-all shadow-sm ${
                   activeCategory === cat 
-                    ? 'bg-gold-gradient text-primary-foreground' 
+                    ? 'bg-green-gradient text-primary-foreground' 
                     : 'bg-card border border-border text-foreground hover:bg-muted'
                 }`}
               >

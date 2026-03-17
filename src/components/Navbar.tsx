@@ -21,7 +21,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-secondary border-b border-border/30 shadow-lg">
       <div className="container mx-auto px-4 flex items-center justify-between h-16 lg:h-20">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Venkateswara Rice Traders" className="h-14 w-14 lg:h-16 lg:w-16 rounded-full object-cover shadow-md" />
+          <img src={logo} alt="Venkateswara Rice Traders" className="h-12 w-auto lg:h-16 object-contain" />
           <span className="font-display text-lg lg:text-xl font-bold text-gold hidden sm:block">
             Venkateswara Rice Traders
           </span>
@@ -42,7 +42,7 @@ const Navbar = () => {
                   <ShoppingCart size={18} />
                   Cart
                   {totalItems > 0 && (
-                    <span className="absolute -top-2 -right-4 bg-gold text-primary-foreground text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+                    <span className="absolute -top-2 -right-4 bg-gold text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
                       {totalItems}
                     </span>
                   )}
@@ -52,7 +52,7 @@ const Navbar = () => {
           ))}
           <a
             href="tel:9704372273"
-            className="flex items-center gap-2 bg-gold-gradient text-primary-foreground px-4 py-2 rounded-md font-body text-sm font-semibold hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 bg-gold-gradient text-white px-4 py-2 rounded-md font-body text-sm font-semibold hover:opacity-90 transition-opacity"
           >
             <Phone size={16} />
             Call Now
@@ -64,7 +64,7 @@ const Navbar = () => {
           <Link to="/cart" className="relative text-secondary-foreground">
             <ShoppingCart size={22} />
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-gold text-primary-foreground text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+              <span className="absolute -top-2 -right-2 bg-gold text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
                 {totalItems}
               </span>
             )}
@@ -92,7 +92,7 @@ const Navbar = () => {
           ))}
           <a
             href="tel:9704372273"
-            className="mx-6 mt-2 flex items-center justify-center gap-2 bg-gold-gradient text-primary-foreground px-4 py-2 rounded-md font-body text-sm font-semibold"
+            className="mx-6 mt-2 flex items-center justify-center gap-2 bg-gold-gradient text-white px-4 py-2 rounded-md font-body text-sm font-semibold"
           >
             <Phone size={16} />
             Call Now
