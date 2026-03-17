@@ -21,7 +21,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-secondary border-b border-border/30 shadow-lg">
       <div className="container mx-auto px-4 flex items-center justify-between h-16 lg:h-20">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Venkateswara Rice Traders" className="h-12 w-12 lg:h-14 lg:w-14 rounded-full object-cover" />
+          <img src={logo} alt="Venkateswara Rice Traders" className="h-14 w-14 lg:h-16 lg:w-16 rounded-full object-cover shadow-md" />
           <span className="font-display text-lg lg:text-xl font-bold text-gold hidden sm:block">
             Venkateswara Rice Traders
           </span>

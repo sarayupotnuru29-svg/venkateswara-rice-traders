@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Truck, ShieldCheck, Wheat, Users } from 'lucide-react';
-import heroBg from '@/assets/hero-bg.jpg';
+import logoImg from '@/assets/logo.jpeg';
 import riceImg from '@/assets/products/rice/rice-category.jpg';
 import branImg from '@/assets/products/bran/bran-category.jpg';
 import cattleFeedImg from '@/assets/products/cattle-feed/cattle-feed-category.jpg';
@@ -25,8 +25,8 @@ const Index = () => {
     <div>
       {/* Hero */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <img src={heroBg} alt="Rice fields" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-dark-overlay" />
+        <img src={logoImg} alt="Venkateswara Rice Traders" className="absolute inset-0 w-full h-full object-contain bg-white" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gold-light mb-4 leading-tight">
             Trusted Rice & Cattle Feed Traders
