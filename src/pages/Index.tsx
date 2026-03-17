@@ -23,27 +23,34 @@
 // const Index = () => {
 //   return (
 //     <div>
-//       {/* Hero */}
-//       <section className="relative min-h-[85vh] flex flex-col items-center justify-end overflow-hidden pb-16 md:pb-20">
-//         <img src={logoImg} alt="Venkateswara Rice Traders" className="absolute inset-0 w-full h-full object-contain bg-white" />
-//         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-//         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-//           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+//       {/* Hero - Increased padding to pt-75vh to drop buttons below the logo text */}
+//       <section className="relative min-h-[90vh] flex flex-col items-center pt-[75vh] md:pt-[72vh] overflow-hidden pb-12">
+//         <img 
+//           src={logoImg} 
+//           alt="Venkateswara Rice Traders" 
+//           className="absolute inset-0 w-full h-full object-contain bg-white" 
+//         />
+        
+//         {/* Subtle dark overlay at the bottom for visibility */}
+//         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+        
+//         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto w-full">
+//           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
 //             <Link
 //               to="/products"
-//               className="bg-green-gradient text-primary-foreground px-10 py-3.5 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity shadow-lg"
+//               className="bg-green-gradient text-primary-foreground w-full sm:w-auto px-10 py-3.5 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity shadow-xl"
 //             >
 //               Shop Products
 //             </Link>
 //             <Link
 //               to="/contact"
-//               className="bg-gold-gradient text-white px-10 py-3.5 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity shadow-lg"
+//               className="bg-gold-gradient text-white w-full sm:w-auto px-10 py-3.5 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity shadow-xl"
 //             >
 //               Contact Us
 //             </Link>
 //             <a
 //               href="tel:9704372273"
-//               className="border-2 border-white/80 text-white px-10 py-3.5 rounded-md font-body font-semibold text-base hover:bg-white/10 transition-colors shadow-lg"
+//               className="border-2 border-white/80 text-white w-full sm:w-auto px-10 py-3.5 rounded-md font-body font-semibold text-base hover:bg-white/20 transition-colors shadow-xl backdrop-blur-sm"
 //             >
 //               Call Now
 //             </a>
@@ -52,7 +59,7 @@
 //       </section>
 
 //       {/* Features */}
-//       <section className="py-16 lg:py-24 bg-background">
+//       <section className="py-16 lg:py-24 bg-background border-t border-border/10">
 //         <div className="container mx-auto px-4">
 //           <h2 className="font-display text-3xl lg:text-4xl font-bold text-center text-foreground mb-12">Why Choose Us</h2>
 //           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -119,8 +126,6 @@
 
 
 
-
-
 import { Link } from 'react-router-dom';
 import { Truck, ShieldCheck, Wheat, Users } from 'lucide-react';
 import logoImg from '@/assets/logo.jpeg';
@@ -146,12 +151,12 @@ const categories = [
 const Index = () => {
   return (
     <div>
-      {/* Hero - Increased padding to pt-75vh to drop buttons below the logo text */}
-      <section className="relative min-h-[90vh] flex flex-col items-center pt-[75vh] md:pt-[72vh] overflow-hidden pb-12">
+      {/* Hero - Adjusted pt-55vh for mobile to reduce white space, keeping pt-72vh for desktop */}
+      <section className="relative min-h-[80vh] md:min-h-[90vh] flex flex-col items-center pt-[55vh] md:pt-[72vh] overflow-hidden pb-12">
         <img 
           src={logoImg} 
           alt="Venkateswara Rice Traders" 
-          className="absolute inset-0 w-full h-full object-contain bg-white" 
+          className="absolute inset-0 w-full h-full object-contain md:object-contain bg-white" 
         />
         
         {/* Subtle dark overlay at the bottom for visibility */}
@@ -161,19 +166,19 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               to="/products"
-              className="bg-green-gradient text-primary-foreground w-full sm:w-auto px-10 py-3.5 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity shadow-xl"
+              className="bg-green-gradient text-primary-foreground w-full sm:w-auto px-10 py-3.5 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity shadow-xl text-center"
             >
               Shop Products
             </Link>
             <Link
               to="/contact"
-              className="bg-gold-gradient text-white w-full sm:w-auto px-10 py-3.5 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity shadow-xl"
+              className="bg-gold-gradient text-white w-full sm:w-auto px-10 py-3.5 rounded-md font-body font-semibold text-base hover:opacity-90 transition-opacity shadow-xl text-center"
             >
               Contact Us
             </Link>
             <a
               href="tel:9704372273"
-              className="border-2 border-white/80 text-white w-full sm:w-auto px-10 py-3.5 rounded-md font-body font-semibold text-base hover:bg-white/20 transition-colors shadow-xl backdrop-blur-sm"
+              className="border-2 border-white/80 text-white w-full sm:w-auto px-10 py-3.5 rounded-md font-body font-semibold text-base hover:bg-white/20 transition-colors shadow-xl backdrop-blur-sm text-center"
             >
               Call Now
             </a>
@@ -245,8 +250,3 @@ const Index = () => {
 };
 
 export default Index;
-
-
-
-
-
