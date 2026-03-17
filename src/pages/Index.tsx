@@ -81,11 +81,14 @@ const Index = () => {
               <Link
                 to="/products"
                 key={c.name}
-                className="group relative overflow-hidden rounded-lg aspect-[4/3]"
+                className="group relative overflow-hidden rounded-lg aspect-[4/3] border border-border/50 shadow-sm"
               >
-                <img src={c.img} alt={c.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-dark-overlay flex items-end p-4">
-                  <h3 className="font-display text-lg font-bold text-gold-light">{c.name}</h3>
+                {/* Image is now clearly visible without dark shade */}
+                <img src={c.img} alt={c.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                
+                {/* Text overlay moved to the bottom with a subtle gradient for readability */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent flex items-end p-5">
+                  <h3 className="font-display text-xl font-bold text-white group-hover:text-gold-light transition-colors">{c.name}</h3>
                 </div>
               </Link>
             ))}

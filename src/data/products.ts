@@ -5,11 +5,55 @@ import grainsImg from '@/assets/products/grains/grains-category.jpg';
 import supplementsImg from '@/assets/products/supplements/supplements-category.jpg';
 import othersImg from '@/assets/products/others/others-category.jpg';
 
+// Original Asset Imports
+import bajjaraImg from '@/assets/Bajjara.jpg';
+import coppraImg from '@/assets/Coppra.webp';
+import cottonCakeImg from '@/assets/cotton-cake-cattle-feed.jpg';
+import greenGramHuskImg from '@/assets/Green-Gram-Husk.webp';
+import horseGramImg from '@/assets/Horse-Gram.jpg';
+import maizeBranImg from '@/assets/maize-bran.jpg';
+import maizeNukaImg from '@/assets/Maize-Nuka.webp';
+import maizeImg from '@/assets/Maize.webp';
+import oridDamageToorImg from '@/assets/orid-damage-toor.jpg';
+import oridHuskImg from '@/assets/orid-husk.jpg';
+import oridNunnaImg from '@/assets/orid-nunna.jpg';
+import ragiImg from '@/assets/Ragi.jpg';
+import rawRagiImg from '@/assets/Raw-Ragi.jpg';
+import redGramHuskImg from '@/assets/Red-Gram-Husk.jpeg';
+import riceBranPremiumImg from '@/assets/rice-bran-premium.webp';
+import thoorHuskImg from '@/assets/Thoor-Husk.jpg';
+import wheatBranImg from '@/assets/wheat-bran.jpg';
+import wheatFlakesImg from '@/assets/wheat-flasks.jpg';
+import whiteJowerImg from '@/assets/White-Jower.webp';
+import yellowJowerImg from '@/assets/Yellow-Jower.png';
+
+// New Asset Imports
+import brokenRiceImg from '@/assets/BrokenRice.jpg';
+import calciumImg from '@/assets/Calcium.jpg';
+import cottonCakePureImg from '@/assets/CottonCakePure.jpg';
+import groundNutCakeImg from '@/assets/GroundNutCake.webp';
+import heritageBypassImg from '@/assets/HeritageBypassPellets.jpg';
+import heritageGoldImg from '@/assets/HeritageGoldPellets.jpg';
+import heritageGomitraImg from '@/assets/HeritageGomitra.webp';
+import heritageGomitraPlusImg from '@/assets/HeritageGomitraPlus.jpg';
+import heritageMilkBoosterImg from '@/assets/HeritageMilkBooster.jpg';
+import heritageMilkJoyImg from '@/assets/HeritageMilkJoy.jpg';
+import heritageMilkMagicPlusImg from '@/assets/HeritageMilkMagicPlus.jpg';
+import heritageMixMawaImg from '@/assets/HeritageMixMawa.webp';
+import jaggeryImg from '@/assets/Jaggery.webp';
+import kurnoolRiceImg from '@/assets/KurnoolRice.webp';
+import mineralMixtureImg from '@/assets/MineralMixture.jpg';
+import nklMayuriImg from '@/assets/NKLMayuri.jpg';
+import queenOfPunjabImg from '@/assets/QueenofPunjab.webp';
+import saltImg from '@/assets/Salt.jpg';
+import unityBasmatiImg from '@/assets/UnityBasmati.webp';
+import vipGoldImg from '@/assets/VipGold.jpg';
+
 export interface Product {
   id: string;
   name: string;
   quantity: string;
-  price: string; // empty string means no price
+  price: string;
   category: string;
   image: string;
 }
@@ -23,6 +67,52 @@ const categoryImages: Record<string, string> = {
   'Others': othersImg,
 };
 
+const productSpecificImages: Record<string, string> = {
+  'Bajjara': bajjaraImg,
+  'Coppra (5 types)': coppraImg,
+  'Cotton Cake (Normal)': cottonCakeImg,
+  'Cotton Cake (Pure)': cottonCakePureImg,
+  'Green Gram Husk': greenGramHuskImg,
+  'Horse Gram': horseGramImg,
+  'Maize Bran': maizeBranImg,
+  'Maize Nuka': maizeNukaImg,
+  'Maize': maizeImg,
+  'Orid Damage Toor': oridDamageToorImg,
+  'Orid Husk': oridHuskImg,
+  'Orid Nunna': oridNunnaImg,
+  'Ragi': ragiImg,
+  'Raw Ragi': rawRagiImg,
+  'Red Gram Husk': redGramHuskImg,
+  'Rice Bran Premium': riceBranPremiumImg,
+  'Thoor Husk': thoorHuskImg,
+  'Wheat Bran': wheatBranImg,
+  'Wheat Flakes': wheatFlakesImg,
+  'White Jower': whiteJowerImg,
+  'Yellow Jower': yellowJowerImg,
+  // New specific mappings
+  'Broken Rice': brokenRiceImg,
+  'Kurnool Rice': kurnoolRiceImg,
+  'Vip Gold': vipGoldImg,
+  'NKL Mayuri': nklMayuriImg,
+  'Queen of Punjab': queenOfPunjabImg,
+  'Unity Basmati': unityBasmatiImg,
+  'Heritage Bypass Pellets': heritageBypassImg,
+  'Heritage Gold Pellets': heritageGoldImg,
+  'Heritage Milk Magic Plus': heritageMilkMagicPlusImg,
+  'Heritage Gomitra': heritageGomitraImg,
+  'Heritage Gomitra Plus': heritageGomitraPlusImg,
+  'Heritage Mix Mawa': heritageMixMawaImg,
+  'Heritage Milk Booster': heritageMilkBoosterImg,
+  'Heritage Milk Joy': heritageMilkJoyImg,
+  'Ground Nut Cake': groundNutCakeImg,
+  'Calcium (1L)': calciumImg,
+  'Calcium (5L)': calciumImg,
+  'Calcium (10L)': calciumImg,
+  'Mineral Mixture': mineralMixtureImg,
+  'Jaggery': jaggeryImg,
+  'Salt': saltImg,
+};
+
 function makeProduct(name: string, quantity: string, price: string, category: string): Product {
   return {
     id: name.toLowerCase().replace(/[^a-z0-9]/g, '-'),
@@ -30,7 +120,7 @@ function makeProduct(name: string, quantity: string, price: string, category: st
     quantity,
     price,
     category,
-    image: categoryImages[category] || riceImg,
+    image: productSpecificImages[name] || categoryImages[category] || riceImg,
   };
 }
 
@@ -49,7 +139,7 @@ export const products: Product[] = [
   makeProduct('Green Gram Husk', '50 kg', '₹1,250', 'Brans'),
   makeProduct('Red Gram Husk', '50 kg', '₹1,500', 'Brans'),
 
-  // Grains (per-kg range products: show range as quantity, no price)
+  // Grains
   makeProduct('Maize', '19 – 22 kgs', '', 'Grains'),
   makeProduct('Bajjara', '22 – 28 kgs', '', 'Grains'),
   makeProduct('White Jower', '25 – 30 kgs', '', 'Grains'),
@@ -92,3 +182,5 @@ export const products: Product[] = [
 ];
 
 export const categories = ['Brans', 'Grains', 'Cattle Feed', 'Rice Products', 'Supplements', 'Others'];
+
+
